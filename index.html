@@ -20,43 +20,50 @@
 
     <section class="main-content">
       <h3>
-<a id="how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to use?</h3>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h3>
 
-<p>Include LoadingIndicator and put it somewhere in the top-component. For example:
-`
-import LoadingIndicator from "react-loading-indicator";</p>
+<p>Loading indicator is released as a npm package, so you can install it with </p>
 
-<p>var Layout = React.createClass({
+<pre><code>npm install react-loading-indicator --save
+</code></pre>
+
+<h3>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h3>
+
+<p>Include LoadingIndicator and put it somewhere in the top-component. For example:</p>
+
+<pre><code>import LoadingIndicator from "react-loading-indicator";
+
+var Layout = React.createClass({
     render: function() {
         return (
-            </p><div>
-                
-            </div>
+            &lt;div className="layout"&gt;
+                &lt;LoadingIndicator/&gt;
+            &lt;/div&gt;
         );
     }
 });
-`
+</code></pre>
 
-<p>Now, whenever you need to show an indicator, trigger <code>loader.show</code>, for example:
-`
-loadPage: function() {
+<p>Now, whenever you need to show an indicator, trigger <code>loader.show</code>, for example:</p>
+
+<pre><code>loadPage: function() {
     $(window).trigger("loader.show");
     // do your ajax thing.
-},</p>
+},
 
-<p>loadPageCallback: function() {
+loadPageCallback: function() {
     $(window).trigger("loader.hide");
 }
-`</p>
+</code></pre>
 
 <h3>
 <a id="styling" class="anchor" href="#styling" aria-hidden="true"><span class="octicon octicon-link"></span></a>Styling</h3>
 
-<p><code>
-.loader-60devs .loader-60devs-progress {
+<pre><code>.loader-60devs .loader-60devs-progress {
     background: #ff6f00;
 }
-</code></p>
+</code></pre>
 
 <h3>
 <a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
