@@ -1,0 +1,47 @@
+.loader-60devs {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    z-index: 10000;
+    opacity: 1;
+    transition: opacity 250ms 250ms;
+
+    .loader-60devs-progress {
+        height: 2px;
+        width: 100%;
+        background-color: #039be5;
+        transition-property: transform, opacity;
+        transition-duration: 12s;
+        transition-timing-function: cubic-bezier(.04,.9,.11,.9);
+        transform: translateX(-100%);
+    }
+
+    &[data-state="hidden"] {
+        display: none;
+    }
+
+    &[data-state="running"] {
+        &::before {
+            content: '';
+            position: fixed;
+            z-index: 99999999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .loader-60devs-progress {
+            transform: translateX(0);
+        }
+    }
+
+    &[data-state="finishing"] {
+        opacity: 0;
+        .loader-60devs-progress {
+            transform: scaleX(100) translateX(0);
+        }
+    }
+}
