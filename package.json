@@ -1,5 +1,5 @@
 {
-  "name": "react-loading-indicator",
+  "name": "react-progress-indicator",
   "version": "1.0.0",
   "description": "React loading indicator",
   "main": "main.js",
@@ -12,10 +12,11 @@
     "type": "git",
     "url": "git+https://github.com/milworm/react-loading-indicator.git"
   },
-  "author": "",
+  "author": "Ruslan Prytula <ruslan.prytula@gmail.com> (http://60devs.com)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/milworm/react-loading-indicator/issues"
   },
+  "keywords": "progress-indicator, react-progress-indicator, loading-indicator, react-loading-indicator",
   "homepage": "http://milworm.github.io/react-loading-indicator/#readme"
 }

@@ -1,25 +1,25 @@
 ## Installation
 #### JSPM
-    jspm install npm:react-loading-indicator --save
+    jspm install npm:react-progress-indicator --save
 
 
 ## Usage
-Include `jspm_packages/react-loading-indicator/main.css` to your `html`-file, for instance:
+Include `jspm_packages/react-progress-indicator/main.css` to your `html`-file, for instance:
 
     <html>
         <head>
             <meta charset="UTF-8">
-            <title>React loading indicator example</title>
-            <!-- loading indicator -->
-            <link rel="stylesheet" href="/jspm_packages/react-loading-indicator/main.css" />
+            <title>React progress indicator example</title>
+            <!-- progress indicator -->
+            <link rel="stylesheet" href="/jspm_packages/react-progress-indicator/main.css" />
         </head>
         <body></body>
     </html>
 
-Include `react-loading-indicator` and put it somewhere in the top-component, for example:
+Include `react-progress-indicator` and put it somewhere in the top-component, for example:
 
     import React from "react";
-    import LoadingIndicator from "react-loading-indicator";
+    import LoadingIndicator from "react-progress-indicator";
 
     var Layout = React.createClass({
         render: function() {
@@ -53,7 +53,7 @@ Now, whenever you need to show an indicator, trigger `loader.show`, for example:
     }
 
 ## Examples
-[Examples](http://milworm.github.io/react-loading-indicator/example.html)
+[Examples](http://milworm.github.io/react-progress-indicator/example.html)
 
 ## Authors and Contributors
 Created in 2015 by Ruslan Prytula (@milworm).
