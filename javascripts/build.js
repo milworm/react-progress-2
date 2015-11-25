@@ -11753,15 +11753,14 @@ System.register("app.jsx!github:floatdrop/plugin-jsx@1.1.0", ["npm:react@0.14.3"
         execute: function () {
             Layout = React.createClass({ displayName: "Layout",
                 render: function render() {
-                    return React.createElement("div", { className: "layout" }, React.createElement("input", { type: "button", onClick: this.start, value: "Start loading" }), React.createElement(LoadingIndicator, null));
+                    return React.createElement("div", { className: "layout" }, React.createElement("input", { type: "button", onClick: this.start.bind(this, 1), value: "Start loading 1s" }), React.createElement("input", { type: "button", onClick: this.start.bind(this, 5), value: "Start loading 5s" }), React.createElement("input", { type: "button", onClick: this.start.bind(this, 10), value: "Start loading 10s" }), React.createElement(LoadingIndicator, null));
                 },
 
-                start: function start() {
+                start: function start(delay) {
                     $(window).trigger("loader.show");
-
                     setTimeout(function () {
                         $(window).trigger("loader.hide");
-                    }, 1000);
+                    }, delay * 1000);
                 }
             });
 
