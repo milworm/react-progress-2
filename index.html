@@ -20,11 +20,6 @@
 
     <section class="main-content">
       <h3>
-<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h3>
-
-<p><a href="http://milworm.github.io/react-loading-indicator/example.html">Examples</a></p>
-
-<h3>
 <a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h3>
 
 <p>Loading indicator is released as a npm package, so you can install it with </p>
@@ -35,7 +30,7 @@
 <h3>
 <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h3>
 
-<p>Include LoadingIndicator and put it somewhere in the top-component. For example:</p>
+<p>Include <code>LoadingIndicator</code> and put it somewhere in the top-component. For example:</p>
 
 <pre><code>import LoadingIndicator from "react-loading-indicator";
 
@@ -44,6 +39,7 @@ var Layout = React.createClass({
         return (
             &lt;div className="layout"&gt;
                 &lt;LoadingIndicator/&gt;
+                {/* other components go here*/}
             &lt;/div&gt;
         );
     }
@@ -52,13 +48,14 @@ var Layout = React.createClass({
 
 <p>Now, whenever you need to show an indicator, trigger <code>loader.show</code>, for example:</p>
 
-<pre><code>loadPage: function() {
+<pre><code>loadFeed: function() {
     $(window).trigger("loader.show");
     // do your ajax thing.
 },
 
-loadPageCallback: function() {
+onLoadFeedCallback: function() {
     $(window).trigger("loader.hide");
+    // render feed.
 }
 </code></pre>
 
@@ -69,6 +66,11 @@ loadPageCallback: function() {
     background: #ff6f00;
 }
 </code></pre>
+
+<h3>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h3>
+
+<p><a href="http://milworm.github.io/react-loading-indicator/example.html">Examples</a></p>
 
 <h3>
 <a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
