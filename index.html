@@ -19,14 +19,8 @@
     </section>
 
     <section class="main-content">
-      <h3>
-<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h3>
-
-<h4>
-<a id="npm" class="anchor" href="#npm" aria-hidden="true"><span class="octicon octicon-link"></span></a>NPM</h4>
-
-<pre><code>npm install react-loading-indicator --save
-</code></pre>
+      <h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
 
 <h4>
 <a id="jspm" class="anchor" href="#jspm" aria-hidden="true"><span class="octicon octicon-link"></span></a>JSPM</h4>
@@ -34,18 +28,26 @@
 <pre><code>jspm install npm:react-loading-indicator --save
 </code></pre>
 
-<h4>
-<a id="bower" class="anchor" href="#bower" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bower</h4>
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
 
-<pre><code>bower install react-loading-indicator
+<p>Include <code>jspm_packages/react-loading-indicator/main.css</code> to your <code>html</code>-file, for instance:</p>
+
+<pre><code>&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;title&gt;React loading indicator example&lt;/title&gt;
+        &lt;!-- loading indicator --&gt;
+        &lt;link rel="stylesheet" href="/jspm_packages/react-loading-indicator/main.css" /&gt;
+    &lt;/head&gt;
+    &lt;body&gt;&lt;/body&gt;
+&lt;/html&gt;
 </code></pre>
 
-<h3>
-<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h3>
+<p>Include <code>react-loading-indicator</code> and put it somewhere in the top-component, for example:</p>
 
-<p>Include <code>LoadingIndicator</code> and put it somewhere in the top-component. For example:</p>
-
-<pre><code>import LoadingIndicator from "react-loading-indicator";
+<pre><code>import React from "react";
+import LoadingIndicator from "react-loading-indicator";
 
 var Layout = React.createClass({
     render: function() {
@@ -72,21 +74,21 @@ onLoadFeedCallback: function() {
 }
 </code></pre>
 
-<h3>
-<a id="styling" class="anchor" href="#styling" aria-hidden="true"><span class="octicon octicon-link"></span></a>Styling</h3>
+<h2>
+<a id="styling" class="anchor" href="#styling" aria-hidden="true"><span class="octicon octicon-link"></span></a>Styling</h2>
 
 <pre><code>.loader-60devs .loader-60devs-progress {
     background: #ff6f00;
 }
 </code></pre>
 
-<h3>
-<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h3>
+<h2>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h2>
 
 <p><a href="http://milworm.github.io/react-loading-indicator/example.html">Examples</a></p>
 
-<h3>
-<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+<h2>
+<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authors and Contributors</h2>
 
 <p>Created in 2015 by Ruslan Prytula (<a href="https://github.com/milworm" class="user-mention">@milworm</a>).</p>
 
