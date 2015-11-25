@@ -1,0 +1,64 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>React loading indicator example</title>
+
+    <link rel="stylesheet" href="/indicator/component.css" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body, #root {
+            height: 100%;
+            width: 100%;
+        }
+
+        .overlay {
+            background: #eeeeee;
+            height: 40%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 100%;
+            width: 980px;
+            background: #fff;
+            margin: 50px auto;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+            text-align: center;
+        }
+
+        input {
+            padding: 10px 40px;
+            border: none;
+            background: #fff;
+            text-transform: uppercase;
+            font-size: 16px;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+            outline: none;
+            margin-top: 60px;
+        }
+
+        .loader-60devs .loader-60devs-progress {
+            background: #e53935;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="container">
+        <div id="root"></div>
+    </div>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="/javascripts/build.js"></script>
+</body>
+</html>
