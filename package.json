@@ -1,0 +1,21 @@
+{
+  "name": "react-loading-indicator",
+  "version": "1.0.0",
+  "description": "React loading indicator",
+  "main": "main.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/milworm/react-loading-indicator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/milworm/react-loading-indicator/issues"
+  },
+  "homepage": "http://milworm.github.io/react-loading-indicator/#readme"
+}
