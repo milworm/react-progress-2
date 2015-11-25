@@ -1,3 +1,5 @@
+# YouTube style progress bar for ReactJS
+
 ## Installation
 #### JSPM
     jspm install npm:react-progress-2 --save
