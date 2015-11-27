@@ -1,6 +1,6 @@
 import React from "react";
 
-export default React.createClass({
+var Component = React.createClass({
     getInitialState: function() {
         return {
             state: "hidden",
@@ -75,12 +75,20 @@ export default React.createClass({
     },
 
     componentWillMount: function() {
-        $(window).on('loader.show', this.show)
-        $(window).on('loader.hide', this.hide);
+        Component.instance = this;
     },
 
     componentWillUnmount: function() {
-        $(window).off('loader.show', this.show);
-        $(window).off('loader.hide', this.hide);
+        delete Component.instance;
     }
 });
+
+export default {
+    Component: Component,
+    show: function() {
+        Component.instance.show();
+    },
+    hide: function() {
+        Component.instance.hide();
+    }
+}

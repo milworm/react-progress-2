@@ -11649,15 +11649,13 @@ System.register("npm:react@0.14.3", ["npm:react@0.14.3/react"], true, function(r
 System.register("indicator/component.jsx!github:floatdrop/plugin-jsx@1.1.0", ["npm:react@0.14.3"], function (_export) {
     "use strict";
 
-    var React;
+    var React, Component;
     return {
         setters: [function (_npmReact0143) {
             React = _npmReact0143["default"];
         }],
         execute: function () {
-            _export("default", React.createClass({
-                displayName: "component",
-
+            Component = React.createClass({ displayName: "Component",
                 getInitialState: function getInitialState() {
                     return {
                         state: "hidden",
@@ -11674,17 +11672,22 @@ System.register("indicator/component.jsx!github:floatdrop/plugin-jsx@1.1.0", ["n
                 render: function render() {
                     var cls = "loader-60devs " + this.props.cls;
 
-                    return React.createElement("div", { className: cls, "data-state": this.state.state }, React.createElement("div", { className: "loader-60devs-progress" }));
+                    return React.createElement("div", { className: cls, "data-state": this.state.state, ref: "element" }, React.createElement("div", { className: "loader-60devs-progress" }));
                 },
 
                 show: function show() {
-                    clearTimeout(this.state.hidingTimerId);
+                    var state = this.state;
 
                     this.setState({
-                        count: this.state.count + 1
+                        count: state.count + 1
                     });
 
-                    if (this.state.count > 1) return;
+                    if (state.count > 1) return;
+
+                    if (state.state == "finishing") {
+                        clearTimeout(this.finishingTimerId);
+                        this.refs.element.dataset.state = "hidden";
+                    }
 
                     this.setState({
                         state: ""
@@ -11712,10 +11715,10 @@ System.register("indicator/component.jsx!github:floatdrop/plugin-jsx@1.1.0", ["n
                         state: "finishing"
                     });
 
-                    var timerId = setTimeout(this.toHiddenState, 500);
+                    var timerId = setTimeout(this.toHiddenState, 250);
 
                     this.setState({
-                        hidingTimerId: timerId
+                        finishingTimerId: timerId
                     });
                 },
 
@@ -11726,40 +11729,48 @@ System.register("indicator/component.jsx!github:floatdrop/plugin-jsx@1.1.0", ["n
                 },
 
                 componentWillMount: function componentWillMount() {
-                    $(window).on('loader.show', this.show);
-                    $(window).on('loader.hide', this.hide);
+                    Component.instance = this;
                 },
 
                 componentWillUnmount: function componentWillUnmount() {
-                    $(window).off('loader.show', this.show);
-                    $(window).off('loader.hide', this.hide);
+                    delete Component.instance;
                 }
-            }));
+            });
+
+            _export("default", {
+                Component: Component,
+                show: function show() {
+                    Component.instance.show();
+                },
+                hide: function hide() {
+                    Component.instance.hide();
+                }
+            });
         }
     };
 });
 System.register("app.jsx!github:floatdrop/plugin-jsx@1.1.0", ["npm:react@0.14.3", "npm:react-dom@0.14.3", "indicator/component.jsx!github:floatdrop/plugin-jsx@1.1.0"], function (_export) {
     "use strict";
 
-    var React, ReactDOM, LoadingIndicator, Layout;
+    var React, ReactDOM, Progress, Layout;
     return {
         setters: [function (_npmReact0143) {
             React = _npmReact0143["default"];
         }, function (_npmReactDom0143) {
             ReactDOM = _npmReactDom0143["default"];
         }, function (_indicatorComponentJsxGithubFloatdropPluginJsx110) {
-            LoadingIndicator = _indicatorComponentJsxGithubFloatdropPluginJsx110["default"];
+            Progress = _indicatorComponentJsxGithubFloatdropPluginJsx110["default"];
         }],
         execute: function () {
             Layout = React.createClass({ displayName: "Layout",
                 render: function render() {
-                    return React.createElement("div", { className: "layout" }, React.createElement("input", { type: "button", onClick: this.start.bind(this, 1), value: "Start loading 1s" }), React.createElement("input", { type: "button", onClick: this.start.bind(this, 5), value: "Start loading 5s" }), React.createElement("input", { type: "button", onClick: this.start.bind(this, 10), value: "Start loading 10s" }), React.createElement(LoadingIndicator, null));
+                    return React.createElement("div", { className: "layout" }, React.createElement("input", { type: "button", onClick: this.start.bind(this, 1), value: "Start loading 1s" }), React.createElement("input", { type: "button", onClick: this.start.bind(this, 5), value: "Start loading 5s" }), React.createElement("input", { type: "button", onClick: this.start.bind(this, 10), value: "Start loading 10s" }), React.createElement(Progress.Component, null));
                 },
 
                 start: function start(delay) {
-                    $(window).trigger("loader.show");
+                    Progress.show();
                     setTimeout(function () {
-                        $(window).trigger("loader.hide");
+                        Progress.hide();
                     }, delay * 1000);
                 }
             });
