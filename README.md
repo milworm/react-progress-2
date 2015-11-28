@@ -3,9 +3,12 @@
 ![Demo](https://raw.githubusercontent.com/milworm/react-progress-2/master/images/demo.gif)
 
 ## Installation
-#### JSPM
-    jspm install npm:react-progress-2 --save
 
+#### NPM
+    npm install react-progress-2
+
+#### JSPM
+    jspm install npm:react-progress-2
 
 ## Usage
 Include `jspm_packages/react-progress-2/main.css` to your `html`-file, for instance:
