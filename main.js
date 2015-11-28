@@ -1,6 +1,6 @@
 import React from "react";
 
-export default React.createClass({
+var Component = React.createClass({
     getInitialState: function() {
         return {
             state: "hidden",
@@ -84,3 +84,15 @@ export default React.createClass({
         $(window).off('loader.hide', this.hide);
     }
 });
+
+var instance = <Component />;
+
+export default {
+    instance: instance,
+    show: function() {
+        instance.show();
+    },
+    hide: function() {
+        instance.hide();
+    }
+}
