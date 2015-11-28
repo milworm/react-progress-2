@@ -1,5 +1,7 @@
 # YouTube style progress bar for ReactJS
 
+![Demo](https://raw.githubusercontent.com/milworm/react-progress-2/master/images/demo.gif)
+
 ## Installation
 #### JSPM
     jspm install npm:react-progress-2 --save
