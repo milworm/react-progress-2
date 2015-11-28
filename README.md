@@ -47,7 +47,7 @@ Now, whenever you need to show an indicator, just call `Progress#show`, for exam
     }
 
 
-Please note, that `show` and `hide` calls are stacked, so after *n*-consecutive `show` calls, you need to do *n* hide calls to hide an indicator.
+Please note, that `show` and `hide` calls are stacked, so after *n*-consecutive `show` calls, you need to do *n* `hide` calls to hide an indicator.
 
 ## Styling
 
