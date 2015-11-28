@@ -18,15 +18,14 @@ var Component = React.createClass({
         var cls = "loader-60devs " + this.props.cls;
 
         return (
-            <div className={cls} data-state={this.state.state}>
+            <div className={cls} data-state={this.state.state} ref="element">
                 <div className="loader-60devs-progress"></div>
             </div>
         );
     },
 
     show: function() {
-        clearTimeout(this.state.hidingTimerId);
-
+        console.log("show");
         this.setState({
             count: this.state.count + 1
         });
@@ -34,37 +33,40 @@ var Component = React.createClass({
         if(this.state.count > 1)
             return ;
 
+        console.log("show == 1");
+
+        clearTimeout(this.state.hidingTimerId);
+
+        this.refs.element.dataset.state = "hidden";
+        this.refs.element.offsetTop;
+
         this.setState({
-            state: ""
+            state: "",
+            runningTimerId: setTimeout(this.toRunningState, 10)
+        });
+    },
+
+    hide: function() {
+        this.setState({
+            count: this.state.count - 1
         });
 
-        var timerId = setTimeout(this.toRunningState, 1);
+        if(this.state.state == "hidden")
+            return ;
 
+        if(this.state.count > 0)
+            return ;
+
+        clearTimeout(this.state.runningTimerId);
         this.setState({
-            runningTimerId: timerId
+            state: "finishing",
+            hidingTimerId: setTimeout(this.toHiddenState, 500)
         });
     },
 
     toRunningState: function() {
         this.setState({
             state: "running"
-        });
-    },
-
-    hide: function() {
-        clearTimeout(this.state.runningTimerId);
-
-        if(-- this.state.count > 0)
-            return ;
-
-        this.setState({
-            state: "finishing"
-        });
-
-        var timerId = setTimeout(this.toHiddenState, 500);
-
-        this.setState({
-            hidingTimerId: timerId
         });
     },
 
@@ -75,24 +77,20 @@ var Component = React.createClass({
     },
 
     componentWillMount: function() {
-        $(window).on('loader.show', this.show)
-        $(window).on('loader.hide', this.hide);
+        Component.instance = this;
     },
 
     componentWillUnmount: function() {
-        $(window).off('loader.show', this.show);
-        $(window).off('loader.hide', this.hide);
+        delete Component.instance;
     }
 });
 
-var instance = <Component />;
-
 export default {
-    instance: instance,
+    Component: Component,
     show: function() {
-        instance.show();
+        Component.instance.show();
     },
     hide: function() {
-        instance.hide();
+        Component.instance.hide();
     }
 }
