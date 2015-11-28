@@ -21,31 +21,33 @@ Include `jspm_packages/react-progress-2/main.css` to your `html`-file, for insta
 Include `react-progress-2` and put it somewhere in the top-component, for example:
 
     import React from "react";
-    import LoadingIndicator from "react-progress-2";
+    import Progress from "react-progress-2";
 
     var Layout = React.createClass({
         render: function() {
             return (
                 <div className="layout">
-                    <LoadingIndicator/>
+                    <Progress.Component/>
                     {/* other components go here*/}
                 </div>
             );
         }
     });
 
-Now, whenever you need to show an indicator, trigger `loader.show`, for example:
+Now, whenever you need to show an indicator, just call `Progress#show`, for example:
 
     loadFeed: function() {
-        $(window).trigger("loader.show");
+        Progress.show();
         // do your ajax thing.
     },
 
     onLoadFeedCallback: function() {
-        $(window).trigger("loader.hide");
+        Progress.hide();
         // render feed.
     }
 
+
+Please note, that `show` and `hide` calls are stacked, so after n-consecutive `show` calls, you need to do `n` hide calls to hide an indicator.
 
 ## Styling
 
