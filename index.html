@@ -53,7 +53,7 @@ var Layout = React.createClass({
     render: function() {
         return (
             &lt;div className="layout"&gt;
-                &lt;Progress /&gt;
+                &lt;Progress.Component /&gt;
                 {/* other components go here*/}
             &lt;/div&gt;
         );
@@ -61,18 +61,20 @@ var Layout = React.createClass({
 });
 </code></pre>
 
-<p>Now, whenever you need to show an indicator, trigger <code>loader.show</code>, for example:</p>
+<p>Now, whenever you need to show an indicator, just call <code>Progress#show</code>, for example:</p>
 
 <pre><code>loadFeed: function() {
-    $(window).trigger("loader.show");
+    Progress.show();
     // do your ajax thing.
 },
 
 onLoadFeedCallback: function() {
-    $(window).trigger("loader.hide");
+    Progress.hide();
     // render feed.
 }
 </code></pre>
+
+<p>Please note, that <code>show</code> and <code>hide</code> calls are stacked, so after <em>n</em>-consecutive <code>show</code> calls, you need to do <em>n</em> hide calls to hide an indicator.</p>
 
 <h2>
 <a id="styling" class="anchor" href="#styling" aria-hidden="true"><span class="octicon octicon-link"></span></a>Styling</h2>
