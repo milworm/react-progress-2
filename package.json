@@ -17,6 +17,18 @@
   "bugs": {
     "url": "https://github.com/milworm/react-progress-2/issues"
   },
-  "keywords": "react-progress-2, react-progress, react-progress-indicator, loading-indicator, react-loading-indicator",
+  "keywords": [
+    "react-progress-2",
+    "react-progress",
+    "react-progress-indicator",
+    "loading-indicator",
+    "react-loading-indicator"
+  ],
+  "files": [
+    "main.css",
+    "main.js",
+    "README.md",
+    "LICENSE"
+  ],
   "homepage": "http://milworm.github.io/react-progress-2/#readme"
 }
