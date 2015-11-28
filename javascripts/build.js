@@ -11676,49 +11676,45 @@ System.register("indicator/component.jsx!github:floatdrop/plugin-jsx@1.1.0", ["n
                 },
 
                 show: function show() {
-                    var state = this.state;
-
+                    console.log("show");
                     this.setState({
-                        count: state.count + 1
+                        count: this.state.count + 1
                     });
 
-                    if (state.count > 1) return;
+                    if (this.state.count > 1) return;
 
-                    if (state.state == "finishing") {
-                        clearTimeout(this.finishingTimerId);
-                        this.refs.element.dataset.state = "hidden";
-                    }
+                    console.log("show == 1");
+
+                    clearTimeout(this.state.hidingTimerId);
+
+                    this.refs.element.dataset.state = "hidden";
+                    this.refs.element.offsetTop;
 
                     this.setState({
-                        state: ""
+                        state: "",
+                        runningTimerId: setTimeout(this.toRunningState, 10)
+                    });
+                },
+
+                hide: function hide() {
+                    this.setState({
+                        count: this.state.count - 1
                     });
 
-                    var timerId = setTimeout(this.toRunningState, 1);
+                    if (this.state.state == "hidden") return;
 
+                    if (this.state.count > 0) return;
+
+                    clearTimeout(this.state.runningTimerId);
                     this.setState({
-                        runningTimerId: timerId
+                        state: "finishing",
+                        hidingTimerId: setTimeout(this.toHiddenState, 500)
                     });
                 },
 
                 toRunningState: function toRunningState() {
                     this.setState({
                         state: "running"
-                    });
-                },
-
-                hide: function hide() {
-                    clearTimeout(this.state.runningTimerId);
-
-                    if (--this.state.count > 0) return;
-
-                    this.setState({
-                        state: "finishing"
-                    });
-
-                    var timerId = setTimeout(this.toHiddenState, 250);
-
-                    this.setState({
-                        finishingTimerId: timerId
                     });
                 },
 
