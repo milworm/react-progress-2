@@ -11,17 +11,10 @@
     jspm install npm:react-progress-2
 
 ## Usage
-Include `jspm_packages/react-progress-2/main.css` to your `html`-file, for instance:
 
-    <html>
-        <head>
-            <meta charset="UTF-8">
-            <title>React progress indicator example</title>
-            <!-- progress indicator -->
-            <link rel="stylesheet" href="/jspm_packages/react-progress-2/main.css" />
-        </head>
-        <body></body>
-    </html>
+Include `react-progress-2/main.css` to your project. With [SystemJS CSS plugin](https://github.com/systemjs/plugin-css) you simply need to write this line:
+
+    import "react-progress-2/main.css!"
 
 Include `react-progress-2` and put it somewhere in the top-component, for example:
 
