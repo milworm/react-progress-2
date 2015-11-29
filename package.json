@@ -2,7 +2,10 @@
   "name": "react-progress-2",
   "version": "2.6.1",
   "description": "React progress 2",
-  "main": "main.js",
+  "scripts": {
+    "prepublish": "babel -d lib/ src/"
+  },
+  "main": "lib/main.js",
   "dependencies": {},
   "devDependencies": {},
   "scripts": {
@@ -26,9 +29,9 @@
   ],
   "files": [
     "main.css",
-    "main.js",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "lib/main.js"
   ],
   "homepage": "http://milworm.github.io/react-progress-2/#readme"
 }

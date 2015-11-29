@@ -25,15 +25,12 @@ var Component = React.createClass({
     },
 
     show: function() {
-        console.log("show");
         this.setState({
             count: this.state.count + 1
         });
 
         if(this.state.count > 1)
             return ;
-
-        console.log("show == 1");
 
         clearTimeout(this.state.hidingTimerId);
 
