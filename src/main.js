@@ -1,10 +1,13 @@
 import React from "react";
 
 var Component = React.createClass({
+    count: 0,
+    runningTimerId: null,
+    hidingTimerId: null,
+
     getInitialState: function() {
         return {
-            state: "hidden",
-            count: 0
+            state: "hidden"
         }
     },
 
@@ -25,52 +28,30 @@ var Component = React.createClass({
     },
 
     show: function() {
-        this.setState({
-            count: this.state.count + 1
-        });
-
-        if(this.state.count > 1)
+        if(++ this.count > 1)
             return ;
 
-        clearTimeout(this.state.hidingTimerId);
+        clearTimeout(this.hidingTimerId);
 
-        this.refs.element.dataset.state = "hidden";
-        this.refs.element.offsetTop;
+        var el = this.refs.element;
 
-        this.setState({
-            state: "",
-            runningTimerId: setTimeout(this.toRunningState, 10)
-        });
+        el.dataset.state = "hidden";
+        el.offsetHeight;
+        el.dataset.state = "";
+        el.offsetHeight;
+        el.dataset.state = "running";
     },
 
     hide: function() {
-        this.setState({
-            count: this.state.count - 1
-        });
-
-        if(this.state.state == "hidden")
+        if(-- this.count > 0)
             return ;
 
-        if(this.state.count > 0)
-            return ;
-
-        clearTimeout(this.state.runningTimerId);
-        this.setState({
-            state: "finishing",
-            hidingTimerId: setTimeout(this.toHiddenState, 500)
-        });
-    },
-
-    toRunningState: function() {
-        this.setState({
-            state: "running"
-        });
+        this.refs.element.dataset.state = "finishing";
+        this.hidingTimerId = setTimeout(this.toHiddenState, 500);
     },
 
     toHiddenState: function() {
-        this.setState({
-            state: "hidden"
-        });
+        this.refs.element.dataset.state = "hidden";
     },
 
     componentWillMount: function() {
