@@ -60,15 +60,30 @@ var Component = React.createClass({
 
     componentWillUnmount: function() {
         delete Component.instance;
+    },
+
+    hideAll: function() {
+        this.count = 1;
+        this.hide();
+    },
+
+    isVisible: function() {
+        return this.refs.element.dataset.state != "hidden";
     }
 });
 
 export default {
     Component: Component,
-    show: function() {
+    show: () => {
         Component.instance.show();
     },
-    hide: function() {
+    hide: () => {
         Component.instance.hide();
+    },
+    hideAll: () => {
+        Component.instance.hideAll();
+    },
+    isVisible: () => {
+        return Component.instance.isVisible();
     }
 }
