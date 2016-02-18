@@ -5,19 +5,19 @@ var Component = React.createClass({
     runningTimerId: null,
     hidingTimerId: null,
 
-    getInitialState: function() {
+    getInitialState() {
         return {
             state: "hidden"
         }
     },
 
-    getDefaultProps: function() {
+    getDefaultProps() {
         return {
             cls: ""
         }
     },
 
-    render: function() {
+    render() {
         var cls = "loader-60devs " + this.props.cls;
 
         return (
@@ -27,7 +27,7 @@ var Component = React.createClass({
         );
     },
 
-    show: function() {
+    show() {
         if(++ this.count > 1)
             return ;
 
@@ -42,7 +42,7 @@ var Component = React.createClass({
         el.dataset.state = "running";
     },
 
-    hide: function() {
+    hide() {
         if(-- this.count > 0)
             return ;
 
@@ -50,25 +50,41 @@ var Component = React.createClass({
         this.hidingTimerId = setTimeout(this.toHiddenState, 500);
     },
 
-    toHiddenState: function() {
+    hideAll() {
+        this.count = 1;
+        this.hide();
+    },
+
+    toHiddenState() {
         this.refs.element.dataset.state = "hidden";
     },
 
-    componentWillMount: function() {
+    componentWillMount() {
+        window.a = this;
         Component.instance = this;
     },
 
-    componentWillUnmount: function() {
+    componentWillUnmount() {
         delete Component.instance;
+    },
+
+    isVisible() {
+        return this.refs.element.dataset.state != "hidden";
     }
 });
 
 export default {
     Component: Component,
-    show: function() {
+    show() {
         Component.instance.show();
     },
-    hide: function() {
+    hide() {
         Component.instance.hide();
+    },
+    hideAll() {
+        Component.instance.hideAll();
+    },
+    isVisible() {
+        return Component.instance.isVisible();
     }
 }
