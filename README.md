@@ -4,7 +4,7 @@
 
 
 
-[![Support](https://supporter.60devs.com/api/b/399936c021d5111d90001de85283a4b5/React%20Progress%202)](https://supporter.60devs.com/support/399936c021d5111d90001de85283a4b5/React%20Progress%202)
+[![Support](https://supporter.60devs.com/api/b/399936c021d5111d90001de85283a4b5)](https://supporter.60devs.com/give/399936c021d5111d90001de85283a4b5)
 
 ## Installation
 
