@@ -60,7 +60,6 @@ var Component = React.createClass({
     },
 
     componentWillMount() {
-        window.a = this;
         Component.instance = this;
     },
 
