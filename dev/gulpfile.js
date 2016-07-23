@@ -6,8 +6,9 @@ const {reload} = browserSync
 gulp.task('watch', () => {
     browserSync({
         server: {
-            baseDir: './'
-        }
+            baseDir: '../'
+        },
+        serveStatic: ['../', './']
     })
 
     watch('src/**/*.*', () => {

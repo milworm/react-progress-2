@@ -3,12 +3,17 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	
-	<link rel="stylesheet" href="main.css" />
+	<link rel="stylesheet" href="../main.css" />
+	<style>
+		.loader-60devs[data-state="running"]::before {
+		  display: none;
+		}
+	</style>
 </head>
 <body>
 	<div id="root"></div>
-	<script src="/jspm_packages/system.js"></script>
-    <script src="/config.js"></script>
+	<script src="./jspm_packages/system.js"></script>
+    <script src="./config.js"></script>
     <script>
         System.import('app.jsx!');
     </script>

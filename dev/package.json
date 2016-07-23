@@ -16,6 +16,7 @@
   },
   "jspm": {
     "dependencies": {
+      "jsx": "github:floatdrop/plugin-jsx@^1.2.1",
       "react": "npm:react@^15.2.1",
       "react-dom": "npm:react-dom@^15.2.1"
     },
