@@ -7,7 +7,12 @@
   },
   "main": "lib/main.js",
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.13.0",
+    "gulp": "^3.9.1",
+    "gulp-watch": "^4.3.8",
+    "jspm": "^0.16.39"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/milworm/react-progress-2.git"
@@ -30,5 +35,16 @@
     "LICENSE",
     "lib/main.js"
   ],
-  "homepage": "http://milworm.github.io/react-progress-2/#readme"
+  "homepage": "http://milworm.github.io/react-progress-2/#readme",
+  "jspm": {
+    "dependencies": {},
+    "devDependencies": {
+      "jsx": "github:floatdrop/plugin-jsx@^1.2.1",
+      "react": "npm:react@^15.2.1",
+      "react-dom": "npm:react-dom@^15.2.1",
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4"
+    }
+  }
 }
