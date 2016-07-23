@@ -1,4 +1,4 @@
-import React from "react"
+import React from 'react'
 
 let Component = React.createClass({
     count: 0,
@@ -7,13 +7,13 @@ let Component = React.createClass({
 
     getInitialState() {
         return {
-            state: "hidden"
+            state: 'hidden'
         }
     },
 
     getDefaultProps() {
         return {
-            cls: ""
+            cls: ''
         }
     },
 
@@ -36,20 +36,20 @@ let Component = React.createClass({
         var {element} = this.refs
         let progressEl = element.querySelector('.loader-60devs-progress')
 
-        element.dataset.state = "hidden"
+        element.setAttribute('data-state', 'hidden')
         // the only working way to restart a transition on firefox
         progressEl.outerHTML = progressEl.outerHTML
         element.offsetHeight
-        element.dataset.state = ""
+        element.setAttribute('data-state', '')
         element.offsetHeight
-        element.dataset.state = "running"
+        element.setAttribute('data-state', 'running')
     },
 
     hide() {
         if(-- this.count > 0)
             return 
 
-        this.refs.element.dataset.state = "finishing"
+        this.refs.element.setAttribute('data-state', 'finishing')
         this.hidingTimerId = setTimeout(this.toHiddenState, 500)
     },
 
@@ -59,7 +59,7 @@ let Component = React.createClass({
     },
 
     toHiddenState() {
-        this.refs.element.dataset.state = "hidden"
+        this.refs.element.setAttribute('data-state', 'hidden')
     },
 
     componentWillMount() {
@@ -71,7 +71,7 @@ let Component = React.createClass({
     },
 
     isVisible() {
-        return this.refs.element.dataset.state != "hidden"
+        return this.refs.element.getAttribute('data-state') != 'hidden'
     }
 })
 
