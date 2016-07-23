@@ -1,0 +1,28 @@
+{
+  "name": "dev",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.13.0",
+    "gulp": "^3.9.1",
+    "gulp-watch": "^4.3.8",
+    "jspm": "^0.16.39"
+  },
+  "jspm": {
+    "dependencies": {
+      "react": "npm:react@^15.2.1",
+      "react-dom": "npm:react-dom@^15.2.1"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4"
+    }
+  }
+}

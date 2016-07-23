@@ -1,17 +1,13 @@
 {
   "name": "react-progress-2",
-  "version": "4.2.3",
+  "version": "4.2.1",
   "description": "React progress 2",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "main": "lib/main.js",
   "dependencies": {},
-  "devDependencies": {
-    "browser-sync": "^2.13.0",
-    "gulp": "^3.9.1",
-    "gulp-watch": "^4.3.8"
-  },
+  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/milworm/react-progress-2.git"
