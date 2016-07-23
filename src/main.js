@@ -35,18 +35,18 @@ var Component = React.createClass({
 
         var el = this.refs.element;
 
-        el.dataset.state = "hidden";
+        el.setAttribute('data-state', 'hidden');
         el.offsetHeight;
-        el.dataset.state = "";
+        el.setAttribute('data-state', '');
         el.offsetHeight;
-        el.dataset.state = "running";
+        el.setAttribute('data-state', 'running');
     },
 
     hide() {
         if(-- this.count > 0)
             return ;
 
-        this.refs.element.dataset.state = "finishing";
+        this.refs.element.setAttribute('data-state', "finishing");
         this.hidingTimerId = setTimeout(this.toHiddenState, 500);
     },
 
@@ -56,7 +56,7 @@ var Component = React.createClass({
     },
 
     toHiddenState() {
-        this.refs.element.dataset.state = "hidden";
+        this.refs.element.setAttribute('data-state', "hidden");
     },
 
     componentWillMount() {
@@ -68,7 +68,7 @@ var Component = React.createClass({
     },
 
     isVisible() {
-        return this.refs.element.dataset.state != "hidden";
+        return this.refs.element.getAttribute('data-state') != "hidden";
     }
 });
 
