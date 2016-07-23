@@ -1,6 +1,7 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import Progress from "indicator/component.jsx!";
+import React from 'react'
+import ReactDOM from 'react-dom'
+import Progress from 'react-progress-2'
+import 'react-progress-2/main.css!'
 
 var Layout = React.createClass({
     render: function() {

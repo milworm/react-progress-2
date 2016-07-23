@@ -1,10 +1,11 @@
 {
   "jspm": {
-    "directories": {},
     "dependencies": {
-      "jsx": "github:floatdrop/plugin-jsx@^1.1.0",
-      "react": "npm:react@^0.14.3",
-      "react-dom": "npm:react-dom@^0.14.3"
+      "css": "github:systemjs/plugin-css@^0.1.23",
+      "jsx": "github:floatdrop/plugin-jsx@^1.2.1",
+      "react": "npm:react@^15.2.1",
+      "react-dom": "npm:react-dom@^15.2.1",
+      "react-progress-2": "npm:react-progress-2@^4.3.0"
     },
     "devDependencies": {
       "babel": "npm:babel-core@^5.1.13",
