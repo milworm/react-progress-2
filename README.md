@@ -61,5 +61,15 @@ Please note, that `show` and `hide` calls are stacked, so after *n*-consecutive 
 ## Examples
 [Examples](http://milworm.github.io/react-progress-2/example.html)
 
+## Contribution
+Do the following steps if you have the willing to fix a bug or just add some features to `react-progress-2`
+```
+cd dev
+npm install
+jspm install
+gulp watch
+# change the world!
+```
+
 ## Authors and Contributors
 Created in 2015 by Ruslan Prytula (@milworm).
