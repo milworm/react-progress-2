@@ -4,6 +4,7 @@
   left: 0;
   right: 0;
   height: 2px;
+  width: 100%;
   z-index: 10000;
   opacity: 1;
   transition: opacity 250ms 250ms;
@@ -21,6 +22,11 @@
 
 .loader-60devs[data-state="hidden"] {
   display: none;
+  transition: none;
+}
+
+.loader-60devs[data-state="hidden"] .loader-60devs-progress {
+  transition: none;
 }
 
 .loader-60devs[data-state="running"]::before {
