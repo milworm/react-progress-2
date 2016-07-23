@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 let Component = React.createClass({
     count: 0,
@@ -24,7 +24,7 @@ let Component = React.createClass({
             <div className={cls} data-state={this.state.state} ref="element">
                 <div className="loader-60devs-progress"></div>
             </div>
-        );
+        )
     },
 
     show() {
@@ -73,7 +73,7 @@ let Component = React.createClass({
     isVisible() {
         return this.refs.element.dataset.state != "hidden"
     }
-});
+})
 
 export default {
     Component: Component,
