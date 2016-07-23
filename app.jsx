@@ -8,12 +8,17 @@ class Application extends React.Component {
 			<div className='application'>
 				<Progress.Component />
 				<button onClick={this.showProgress}>Show progress</button>
+				<button onClick={this.hideProgress}>Hide progress</button>
 			</div>
 		)
 	}
 
 	showProgress() {
 		Progress.show()
+	}
+
+	hideProgress() {
+		Progress.hide()
 	}
 }
 
