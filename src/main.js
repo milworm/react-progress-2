@@ -21,7 +21,7 @@ let Component = React.createClass({
         let cls = `loader-60devs ${this.props.cls}`
 
         return (
-            <div className={cls} data-state={this.state.state} ref="element">
+            <div className={cls} data-state={this.state.state} ref=(element => { this.element = element })>
                 <div className="loader-60devs-progress"></div>
             </div>
         )
@@ -33,7 +33,7 @@ let Component = React.createClass({
 
         clearTimeout(this.hidingTimerId)
 
-        var {element} = this.refs
+        var {element} = this
         let progressEl = element.querySelector('.loader-60devs-progress')
 
         element.setAttribute('data-state', 'hidden')
@@ -49,7 +49,7 @@ let Component = React.createClass({
         if(-- this.count > 0)
             return 
 
-        this.refs.element.setAttribute('data-state', 'finishing')
+        this.element.setAttribute('data-state', 'finishing')
         this.hidingTimerId = setTimeout(this.toHiddenState, 500)
     },
 
@@ -59,7 +59,7 @@ let Component = React.createClass({
     },
 
     toHiddenState() {
-        this.refs.element.setAttribute('data-state', 'hidden')
+        this.element.setAttribute('data-state', 'hidden')
     },
 
     componentWillMount() {
@@ -71,7 +71,7 @@ let Component = React.createClass({
     },
 
     isVisible() {
-        return this.refs.element.getAttribute('data-state') != 'hidden'
+        return this.element.getAttribute('data-state') != 'hidden'
     }
 })
 
