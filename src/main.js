@@ -21,7 +21,7 @@ let Component = React.createClass({
         let cls = `loader-60devs ${this.props.cls}`
 
         return (
-            <div className={cls} data-state={this.state.state} ref=(element => { this.element = element })>
+            <div className={cls} data-state={this.state.state} ref={element => this.element = element}>
                 <div className="loader-60devs-progress"></div>
             </div>
         )
