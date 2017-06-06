@@ -49,15 +49,24 @@ onLoadFeedCallback: function() {
 }
 ```
 
-Please note, that `show` and `hide` calls are stacked, so after *n*-consecutive `show` calls, you need to do *n* `hide` calls to hide an indicator.
+Please note, that `show` and `hide` calls are stacked, so after *n*-consecutive `show` calls, you need to do *n* `hide` calls to hide an indicator or use Progress.hideAll().
 
 ## Styling
 
+### Option #1
 ```css
 .loader-60devs .loader-60devs-progress {
     background: #ff6f00;
 }
 ```
+
+### Option #2
+```js
+  <Progress.Component
+    style={{background: 'orange'}}
+    thumbStyle={{background: 'green'}} />
+```
+
 ## Examples
 [Examples](http://milworm.github.io/react-progress-2/example.html)
 
