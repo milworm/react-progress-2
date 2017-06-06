@@ -13,16 +13,19 @@ let Component = React.createClass({
 
     getDefaultProps() {
         return {
-            cls: ''
+            cls: '',
+            style: {},
+            thumbStyle: {}
         }
     },
 
     render() {
-        let cls = `loader-60devs ${this.props.cls}`
+        let { cls, style, thumbStyle } = this.props
+        let className = `loader-60devs ${cls}`
 
         return (
-            <div className={cls} data-state={this.state.state} ref={element => this.element = element}>
-                <div className="loader-60devs-progress"></div>
+            <div className={className} style={style} data-state={this.state.state} ref={element => this.element = element}>
+                <div className="loader-60devs-progress" style={thumbStyle}></div>
             </div>
         )
     },
