@@ -1,6 +1,6 @@
 {
   "name": "react-progress-2",
-  "version": "4.3.2",
+  "version": "4.4.0",
   "description": "React progress 2",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
