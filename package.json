@@ -7,7 +7,10 @@
   },
   "main": "lib/main.js",
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-plugin-syntax-class-properties": "^6.13.0",
+    "babel-plugin-transform-class-properties": "^6.24.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/milworm/react-progress-2.git"

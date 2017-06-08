@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Progress from '../src/main'
+import Progress from '../lib/main'
 
 class Application extends React.Component {
 	render() {

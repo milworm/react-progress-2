@@ -1,95 +1,98 @@
 import React from 'react'
 
-let Component = React.createClass({
-    count: 0,
-    runningTimerId: null,
-    hidingTimerId: null,
+class Component extends React.Component {
+	count = 0
+	runningTimerId = null
+	hidingTimerId = null
 
-    getInitialState() {
-        return {
-            state: 'hidden'
-        }
-    },
+	defaultProps = {
+		cls: '',
+		style: {},
+		thumbStyle: {}
+	}
 
-    getDefaultProps() {
-        return {
-            cls: '',
-            style: {},
-            thumbStyle: {}
-        }
-    },
+	constructor (props) {
+		super(props)
+		this.state = {
+			state: 'hidden'
+		}
+	}
 
-    render() {
-        let { cls, style, thumbStyle } = this.props
-        let className = `loader-60devs ${cls}`
+	initElement = (el) => {
+		this.element = el
+	}
 
-        return (
-            <div className={className} style={style} data-state={this.state.state} ref={element => this.element = element}>
-                <div className="loader-60devs-progress" style={thumbStyle}></div>
-            </div>
-        )
-    },
+	render () {
+		let { cls, style, thumbStyle } = this.props
+		let className = `loader-60devs ${cls}`
 
-    show() {
-        if(++ this.count > 1)
-            return 
+		return (
+			<div className={className} style={style} data-state={this.state.state} ref={this.initElement}>
+				<div className="loader-60devs-progress" style={thumbStyle}></div>
+			</div>
+		)
+	}
 
-        clearTimeout(this.hidingTimerId)
+	show () {
+		if(++this.count > 1)
+			return 
 
-        var {element} = this
-        let progressEl = element.querySelector('.loader-60devs-progress')
+		clearTimeout(this.hidingTimerId)
 
-        element.setAttribute('data-state', 'hidden')
-        // the only working way to restart a transition on firefox
-        progressEl.outerHTML = progressEl.outerHTML
-        element.offsetHeight
-        element.setAttribute('data-state', '')
-        element.offsetHeight
-        element.setAttribute('data-state', 'running')
-    },
+		var {element} = this
+		let progressEl = element.querySelector('.loader-60devs-progress')
 
-    hide() {
-        if(-- this.count > 0)
-            return 
+		element.setAttribute('data-state', 'hidden')
+		// the only working way to restart a transition on firefox
+		progressEl.outerHTML = progressEl.outerHTML
+		element.offsetHeight
+		element.setAttribute('data-state', '')
+		element.offsetHeight
+		element.setAttribute('data-state', 'running')
+	}
 
-        this.element.setAttribute('data-state', 'finishing')
-        this.hidingTimerId = setTimeout(this.toHiddenState, 500)
-    },
+	hide () {
+		if(--this.count > 0)
+			return 
 
-    hideAll() {
-        this.count = 1
-        this.hide()
-    },
+		this.element.setAttribute('data-state', 'finishing')
+		this.hidingTimerId = setTimeout(this.toHiddenState, 500)
+	}
 
-    toHiddenState() {
-        this.element.setAttribute('data-state', 'hidden')
-    },
+	hideAll () {
+		this.count = 1
+		this.hide()
+	}
 
-    componentWillMount() {
-        Component.instance = this
-    },
+	toHiddenState = () => {
+		this.element.setAttribute('data-state', 'hidden')
+	}
 
-    componentWillUnmount() {
-        delete Component.instance
-    },
+	componentWillMount () {
+		Component.instance = this
+	}
 
-    isVisible() {
-        return this.element.getAttribute('data-state') != 'hidden'
-    }
-})
+	componentWillUnmount () {
+		delete Component.instance
+	}
+
+	isVisible () {
+		return this.element.getAttribute('data-state') != 'hidden'
+	}
+}
 
 export default {
-    Component: Component,
-    show() {
-        Component.instance.show()
-    },
-    hide() {
-        Component.instance.hide()
-    },
-    hideAll() {
-        Component.instance.hideAll()
-    },
-    isVisible() {
-        return Component.instance.isVisible()
-    }
+	Component: Component,
+	show() {
+		Component.instance.show()
+	},
+	hide() {
+		Component.instance.hide()
+	},
+	hideAll() {
+		Component.instance.hideAll()
+	},
+	isVisible() {
+		return Component.instance.isVisible()
+	}
 }
