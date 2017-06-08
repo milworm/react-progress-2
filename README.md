@@ -49,7 +49,7 @@ onLoadFeedCallback: function() {
 }
 ```
 
-Please note, that `show` and `hide` calls are stacked, so after *n*-consecutive `show` calls, you need to do *n* `hide` calls to hide an indicator or use Progress.hideAll().
+Please note, that `show` and `hide` calls are stacked, so after *n*-consecutive `show` calls, you need to do *n* `hide` calls to hide an indicator or you can use `Progress.hideAll()`.
 
 ## Styling
 
@@ -61,7 +61,7 @@ Please note, that `show` and `hide` calls are stacked, so after *n*-consecutive 
 ```
 
 ### Option #2
-```js
+```jsx
   <Progress.Component
     style={{background: 'orange'}}
     thumbStyle={{background: 'green'}} />
