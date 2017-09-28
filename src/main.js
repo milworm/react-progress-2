@@ -5,7 +5,7 @@ class Component extends React.Component {
 	runningTimerId = null
 	hidingTimerId = null
 
-	defaultProps = {
+	static defaultProps = {
 		cls: '',
 		style: {},
 		thumbStyle: {}
